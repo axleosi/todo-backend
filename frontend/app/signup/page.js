@@ -8,6 +8,7 @@ import styles from './signup.module.css'
 
 const SignUp = () => {
   const API = process.env.REACT_APP_API_URL;
+  console.log('API Base URL:', API);
   const [formData, setFormData]=useState({
         username:'',
         first_name:'',
@@ -32,7 +33,6 @@ const SignUp = () => {
     if (!formData.username.trim() || !formData.password.trim()) return;
 
     try{
-      console.log('API Base URL:', API);
         const response=await axios.post(`${API}/api/names/`,formData);
         const token =response.data.token.access;
         const refresh=response.data.token.refresh
