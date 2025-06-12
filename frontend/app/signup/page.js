@@ -7,7 +7,7 @@ import styles from './signup.module.css'
 
 
 const SignUp = () => {
-  const API = process.env.REACT_APP_API_URL;
+  const API = process.env.NEXT_PUBLIC_API_URL;
   console.log('API Base URL:', API);
   const [formData, setFormData]=useState({
         username:'',
