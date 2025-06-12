@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.generics import ListCreateAPIView, RetrieveAPIView,RetrieveUpdateAPIView,RetrieveUpdateDestroyAPIView
-from .models import Name, Todo
+from .models import Name, Todo, UserProfile
 from .serializers import NameSerializer, UserProfileSerializer, TodoSerializer
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ValidationError
@@ -32,7 +32,20 @@ class UserProfileView(RetrieveUpdateAPIView):
     serializer_class=UserProfileSerializer
 
     def get_object(self):
-        return self.request.user.name.profile
+      user = self.request.user
+
+      try:
+        name = user.name
+      except Name.DoesNotExist:
+        raise NotFound("Name object not found.")
+
+      try:
+        profile = name.profile
+      except UserProfile.DoesNotExist:
+        raise NotFound("UserProfile object not found.")
+
+      return profile
+
 
     def perform_update(self, serializer):
         serializer.save()
