@@ -57,7 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS=[
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://todo-backend-teal.vercel.app'
 ]
 
 REST_FRAMEWORK={
@@ -70,7 +71,7 @@ REST_FRAMEWORK={
     ],
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),  # or 'hours=1', 'days=1', etc.
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  # or 'hours=1', 'days=1', etc.
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 ROOT_URLCONF = 'backend.urls'
