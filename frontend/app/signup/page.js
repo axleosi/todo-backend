@@ -39,7 +39,7 @@ const SignUp = () => {
         localStorage.setItem('access_token', token)
         localStorage.setItem('refresh_token', refresh)
         setAccessToken(token)
-        fetchUserDetails(token)
+        await fetchUserDetails(token)
         router.push('/profile');
         console.log('User created')
     }catch (error) {
