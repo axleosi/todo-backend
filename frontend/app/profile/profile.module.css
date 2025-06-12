@@ -1,0 +1,109 @@
+.profileContainer {
+    background-color: rgb(247, 247, 236);
+    min-height: 100vh;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileContainer button {
+    cursor: pointer;
+}
+
+.profileHeader {
+    width: 50%;
+    margin-top: 20px;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileHeader h1 {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.todoHeader {
+    width: 40%;
+}
+
+.city {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.profileEdit h2 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.todoForm {
+    background-color: bisque;
+    padding: 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.todoForm input:focus {
+    border: none;
+    outline: none;
+}
+
+.cancel {
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 1100px) {
+    .profileHeader,
+    .todoHeader {
+        width: 90%;
+    }
+
+    .profileHeader h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .profileEdit h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .city {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .todoForm {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+        gap: 10px;
+    }
+
+    .todoForm input,
+    .todoForm button {
+        width: 100%;
+    }
+
+    .cancel {
+        width: 100%;
+        text-align: center;
+    }
+}

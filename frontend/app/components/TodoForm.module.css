@@ -1,0 +1,16 @@
+.todoForm{
+    background-color: rgb(89, 129, 116);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+.todoForm input:focus{
+    
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,9 @@
+.filter{
+    background-color: rgb(97, 16, 16);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

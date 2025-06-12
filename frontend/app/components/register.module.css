@@ -1,0 +1,34 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background-color: rgb(89, 129, 116);
+}
+.container button{
+    cursor: pointer;
+    color: rgb(60, 60, 144);
+    text-decoration: underline;
+}
+.con{
+    margin-top: 10%;
+    background-color: rgba(231, 227, 227, 0.901);
+    height: 40%;
+    width: 50%;
+    border-radius: 10PX;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.con h1{
+    font-size: 50px;
+    font-weight: 800;
+}
+.con p{
+    font-size: 18px;
+    font-weight: 600;
+
+}

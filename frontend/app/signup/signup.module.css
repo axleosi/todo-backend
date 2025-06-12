@@ -1,0 +1,98 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.container button {
+    cursor: pointer;
+}
+
+.signupCon {
+    border: 1px black solid;
+    border-radius: 10px;
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.signupText h1 {
+    font-size: 30px;
+}
+
+.signupForm {
+    margin-top: 20px;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+}
+
+.signups {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.signin {
+    color: blue;
+    text-decoration: underline;
+}
+
+.signupDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signupForm input {
+    color: black;
+    border: none;
+}
+
+.signupForm input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.signupForm button {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+    .signupCon {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .signupText h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .signupForm {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .signupForm button {
+        padding: 12px;
+    }
+}

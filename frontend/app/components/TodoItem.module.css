@@ -1,0 +1,18 @@
+.singleTodo{
+    display: flex;
+    background-color: rgb(89, 129, 116);
+    max-height: fit-content;
+    min-height: 40px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+.todo{
+    height: fit-content;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
