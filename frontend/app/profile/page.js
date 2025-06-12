@@ -8,6 +8,7 @@ import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
 const UserProfile = () => {
+  const API = process.env.REACT_APP_API_URL;
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -22,7 +23,7 @@ const UserProfile = () => {
       try {
         const token = localStorage.getItem('access_token');
         if (token) {
-          const response = await axios.get('http://127.0.0.1:8000/api/profile/', {
+          const response = await axios.get(`${API}/api/profile/`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -47,7 +48,7 @@ const UserProfile = () => {
   const handleDeleteTodo = async (id) => {
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://127.0.0.1:8000/api/todos/${id}/`, {
+      await axios.delete(`${API}/api/todos/${id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUserProfile((prev) => ({
@@ -62,7 +63,7 @@ const UserProfile = () => {
   const handleToggleTodo = async (todo) => {
     try {
       const token = localStorage.getItem('access_token');
-      await axios.patch(`http://127.0.0.1:8000/api/todos/${todo.id}/`, {
+      await axios.patch(`${API}/api/todos/${todo.id}/`, {
         completed: !todo.completed,
       }, {
         headers: { Authorization: `Bearer ${token}` },
@@ -86,7 +87,7 @@ const UserProfile = () => {
       const token = localStorage.getItem('access_token');
       if (token) {
         await axios.patch(
-          'http://127.0.0.1:8000/api/profile/',
+          `${API}/api/profile/`,
           { city: updatedCity },
           {
             headers: {
@@ -108,7 +109,7 @@ const UserProfile = () => {
       const token = localStorage.getItem('access_token');
       if (token && newTodoText.trim()) {
         await axios.post(
-          'http://127.0.0.1:8000/api/todos/',
+          `${API}/api/todos/`,
           {
             text: newTodoText,
             completed: false,
@@ -118,7 +119,7 @@ const UserProfile = () => {
           }
         );
 
-        const response = await axios.get('http://127.0.0.1:8000/api/profile/', {
+        const response = await axios.get(`${API}/api/profile/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserProfile(response.data);

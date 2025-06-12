@@ -7,6 +7,7 @@ import styles from './signup.module.css'
 
 
 const SignUp = () => {
+  const API = process.env.REACT_APP_API_URL;
   const [formData, setFormData]=useState({
         username:'',
         first_name:'',
@@ -31,7 +32,7 @@ const SignUp = () => {
     if (!formData.username.trim() || !formData.password.trim()) return;
 
     try{
-        const response=await axios.post('http://127.0.0.1:8000/api/names/',formData);
+        const response=await axios.post(`${API}/api/names/`,formData);
         const token =response.data.token.access;
         const refresh=response.data.token.refresh
         localStorage.setItem('access_token', token)
@@ -57,7 +58,7 @@ const SignUp = () => {
 
   const fetchUserDetails=async(token)=>{
     try{
-      const res=await axios.get('http://127.0.0.1:8000/api/me/', {
+      const res=await axios.get(`${API}/api/me/`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -84,7 +85,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/token/refresh/', {
+      const response = await axios.post(`${API}/token/refresh/`, {
         refresh: refreshToken,
       });
       const newAccessToken = response.data.access;
@@ -100,7 +101,7 @@ const SignUp = () => {
       const refreshToken = localStorage.getItem('refresh_token');
       if (refreshToken) {
         try {
-          const response = await axios.post('http://127.0.0.1:8000/token/refresh/', {
+          const response = await axios.post(`${API}/token/refresh/`, {
             refresh: refreshToken
           });
           const newAccessToken = response.data.access;

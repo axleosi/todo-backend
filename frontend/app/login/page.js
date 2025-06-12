@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import styles from './login.module.css'
 
 const Login=() =>{
+  const API = process.env.REACT_APP_API_URL;
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -32,7 +33,7 @@ const Login=() =>{
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/token/', {
+      const response = await axios.post(`${API}/token/`, {
         username: formData.username,
         password: formData.password
       });
